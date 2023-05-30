@@ -10,6 +10,7 @@ import numpy as np
 import scipy
 import skimage
 
+from scipy import ndimage as ndi
 from skimage.metrics import structural_similarity as ssim
 from tqdm import tqdm
 from os import listdir
@@ -20,6 +21,7 @@ import pandas as pd
 from ipywidgets import widgets, interactive, fixed, interact
 
 from matplotlib.widgets import Button
+import napari
 
 path = r'E:\\05-23_phox2b_retro_tracing\\image_processing\\slice_1\\individual genes\\'
 fname = 'GFP_r1.tif'
@@ -35,6 +37,7 @@ for fn in Snap25_image_fns:
     
 for fn in Reln_image_fns:
     Snap25_images.append(skimage.io.imread(path+fn))
+    
     
     # %%
 
@@ -110,10 +113,24 @@ def find_gene_names(path):
     
     return genes
 
+# normalize pixel intensity values in im2 to match im1
+def normalize_grayscale(im1, im2):
+    
+    newMax = np.max(im1)
+    newMin = np.min(im1)
+    
+    Max = np.max(im2)
+    Min = np.min(im2)
+    
+    im_norm = (im2 - Min)*(newMax-newMin)/(Max-Min) + newMin
+    
+    return im_norm
+
+
 # %%
 
 # minimum cell volume to be kept, in voxels
-min_cell_size = 100
+min_cell_size = 50
 
 n_planes = np.shape(image)[0]
 
@@ -127,44 +144,74 @@ thresh_image = scipy.ndimage.binary_fill_holes(thresh_image)
     
 connect_image = skimage.measure.label(thresh_image)
 
-n_cells = np.max(connect_image)
+nucleus_radius = 15
+
+distance = ndi.distance_transform_edt(thresh_image)
+coords = skimage.feature.peak_local_max(distance, 
+                                        footprint=np.ones((nucleus_radius, nucleus_radius, nucleus_radius)), 
+                                        labels=thresh_image)
+mask = np.zeros(distance.shape, dtype=bool)
+mask[tuple(coords.T)] = True
+markers = skimage.measure.label(mask, connectivity=3)
+markers = skimage.segmentation.expand_labels(markers, distance=1)
+markers = skimage.measure.label(markers>0, connectivity=3)
+labels = skimage.segmentation.watershed(-distance, markers, mask=thresh_image)
+
+# test = napari.utils.colormaps.low_discrepancy_image(labels)
+# viewer = napari.view_image(image)
+# labels_layer = viewer.add_labels(markers, name='segmentation')
+# labels_layer = viewer.add_labels(labels, name='segmentation')
+# labels_layer = viewer.add_labels(mask, name='segmentation')
+# print(np.max(labels))
+
+
+n_cells = np.max(labels)
 cell_sizes = np.zeros((n_cells, 2))
 cell_sizes[:,0] = np.array(range(n_cells)) + 1
 
 for i in tqdm(range(n_cells), desc='Determining cell sizes...'):
-    cell_sizes[i,1] = np.sum(connect_image == cell_sizes[i,0])
+    cell_sizes[i,1] = np.sum(labels == cell_sizes[i,0])
 
 for i in tqdm(range(n_cells), desc='Removing small cells...'):
     if cell_sizes[i,1] < min_cell_size:
-        connect_image[connect_image == cell_sizes[i,0]] = 0
+        labels[labels == cell_sizes[i,0]] = 0
         
-connect_image = skimage.measure.label(connect_image)
-n_cells = np.max(connect_image)
+labels = skimage.measure.label(labels)
+n_cells = np.max(labels)
 cell_centroids = np.zeros((n_cells, 3))
 
 for i in tqdm(range(n_cells), desc='Calculating cell centroids'):
-    coords = np.argwhere(connect_image == i+1)
+    coords = np.argwhere(labels == i+1)
     cell_centroids[i,:] = np.round(np.mean(coords, axis=0))
     
 cell_centroids = cell_centroids.astype(int)
 
+NMIs = np.zeros(len(cell_centroids))
+for i in range(len(cell_centroids)):
+    window1 = extract_plane_window(cell_centroids[i,:], Snap25_images[0], 100)
+    window2 = extract_plane_window(cell_centroids[i,:], Snap25_images[1], 100)
+    NMIs[i] = skimage.metrics.normalized_mutual_information(window1, window2)
+
+thresh = skimage.filters.threshold_otsu(NMIs)
+cell_centroids = cell_centroids[NMIs > thresh]
+
+
 df = pd.DataFrame(cell_centroids)
 df = df.rename(columns={0: "z", 1: "y", 2: "x"})
 
-gene_names = find_gene_names(path)
-
-for gene in gene_names:
-    df[gene] = 0
 
 df.to_csv('cell_centroids')
 
-# NRMSEs = np.zeros(len(cell_centroids))
-# for i in range(len(cell_centroids)):
-#     window1 = extract_plane_window(cell_centroids[i,:], Snap25_images[0], 100)
-#     window2 = extract_plane_window(cell_centroids[i,:], Snap25_images[3], 100)
-#     NRMSEs[i] = skimage.metrics.normalized_root_mse(window1, window2)
+# %%
 
-# cell_centroids = cell_centroids[NRMSEs < 0.5]
+k = 54
+
+window1 = extract_plane_window(cell_centroids[k,:], Snap25_images[0], 100)
+window2 = extract_plane_window(cell_centroids[k,:], Snap25_images[1], 100)
+
+fig, ax = plt.subplots(1,2)
+ax[0].imshow(window1)
+ax[1].imshow(window2)
 
 # %%
 
