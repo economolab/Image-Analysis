@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.5.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 460.8 345.6" style="enable-background:new 0 0 460.8 345.6;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{stroke:#000000;stroke-width:0.8;stroke-linejoin:round;}
+	.st2{fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;}
+	.st3{font-family:'ArialMT';}
+	.st4{font-size:12px;}
+	.st5{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+	.st6{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;stroke-dasharray:12.0973,12.0973;}
+	.st7{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;stroke-dasharray:12.1336,12.1336;}
+</style>
+<g id="axes_1">
+	<g id="patch_2">
+		<path class="st0" d="M72.2,307.6h327.9V41.5H72.2V307.6z"/>
+	</g>
+	<g>
+		<defs>
+			<rect id="SVGID_1_" x="72.2" y="41.5" width="327.9" height="266.1"/>
+		</defs>
+		<clipPath id="SVGID_00000121990126071425342170000003055843033014822017_">
+			<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+		</clipPath>
+		<g style="clip-path:url(#SVGID_00000121990126071425342170000003055843033014822017_);enable-background:new    ;">
+			
+				<image style="overflow:visible;" width="456" height="370" id="imageea101e3288" xlink:href="9637351C.png"  transform="matrix(0.72 0 0 -0.72 72.216 307.584)">
+			</image>
+		</g>
+	</g>
+	<g id="matplotlib.axis_1">
+		<g id="xtick_1">
+			<g id="line2d_1">
+				<g>
+					<g>
+						<path id="m26f8c4786a" class="st1" d="M74.6,307.6v3.5"/>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g id="xtick_2">
+			<g id="line2d_2">
+				<g>
+					<g>
+						<path id="m26f8c4786a_00000121980811054415129770000008612737591941305275_" class="st1" d="M122.1,307.6"/>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g id="xtick_3">
+			<g id="line2d_3">
+				<g>
+					<g>
+						<path id="m26f8c4786a_00000124872793645020451180000017381050206260509081_" class="st1" d="M169.6,307.6"/>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g id="xtick_4">
+			<g id="line2d_4">
+				<g>
+					<g>
+						<path id="m26f8c4786a_00000128476758925633126460000010019083400574485661_" class="st1" d="M217.2,307.6"/>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g id="xtick_5">
+			<g id="line2d_5">
+				<g>
+					<g>
+						<path id="m26f8c4786a_00000147931934009303173220000014738279045926267056_" class="st1" d="M264.7,307.6"/>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g id="xtick_6">
+			<g id="line2d_6">
+				<g>
+					<g>
+						<path id="m26f8c4786a_00000042011325952795027610000003136463610944859014_" class="st1" d="M312.2,307.6"/>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g id="xtick_7">
+			<g id="line2d_7">
+				<g>
+					<g>
+						<path id="m26f8c4786a_00000142165423815179923750000014378855733198308994_" class="st1" d="M397.7,307.6v3.5"/>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+	<g id="matplotlib.axis_2">
+		<g id="ytick_1">
+			<g id="line2d_8">
+				<g>
+					<g>
+						<path id="m321fba65e9_00000062914819042702266190000014426883920552881840_" class="st1" d="M72.2,60.5"/>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g id="ytick_2">
+			<g id="line2d_9">
+				<g>
+					<g>
+						<path id="m321fba65e9_00000131331350787050487020000014267400960785537963_" class="st1" d="M72.2,98.5"/>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g id="ytick_3">
+			<g id="line2d_10">
+				<g>
+					<g>
+						<path id="m321fba65e9_00000078041430500314207050000004588999233412611994_" class="st1" d="M72.2,136.5"/>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g id="ytick_4">
+			<g id="line2d_11">
+				<g>
+					<g>
+						<path id="m321fba65e9_00000122710121070244793450000007127629932300210620_" class="st1" d="M72.2,174.5"/>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g id="ytick_5">
+			<g id="line2d_12">
+				<g>
+					<g>
+						<path id="m321fba65e9_00000052066881384261091110000014928680621317130378_" class="st1" d="M72.2,212.5"/>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g id="ytick_6">
+			<g id="line2d_13">
+				<g>
+					<g>
+						<path id="m321fba65e9_00000031178697044565045420000014245193792220532134_" class="st1" d="M72.2,250.6"/>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g id="ytick_7">
+			<g id="line2d_14">
+				<g>
+					<g>
+						<path id="m321fba65e9_00000008843331976730434380000013423455594293683848_" class="st1" d="M72.2,288.6"/>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+	<g id="patch_3">
+		<path class="st2" d="M72.2,307.6V41.5"/>
+	</g>
+	<g id="patch_4">
+		<path class="st2" d="M400.1,307.6V41.5"/>
+	</g>
+	<g id="patch_5">
+		<path class="st2" d="M72.2,307.6h327.9"/>
+	</g>
+	<g id="patch_6">
+		<path class="st2" d="M72.2,41.5h327.9"/>
+	</g>
+</g>
+<text transform="matrix(0.866 0.5 -0.5 0.866 38.7563 52.4718)" class="st3 st4">Sv2b</text>
+<text transform="matrix(0.866 0.5 -0.5 0.866 36.3628 89.1166)" class="st3 st4">Spp1</text>
+<text transform="matrix(0.866 0.5 -0.5 0.866 24.269 122.4127)" class="st3 st4">Slc32a1</text>
+<text transform="matrix(0.866 0.5 -0.5 0.866 27.4839 161.5309)" class="st3 st4">Phox2b</text>
+<text transform="matrix(0.866 0.5 -0.5 0.866 30.6284 200.4196)" class="st3 st4">Fxyd6</text>
+<text transform="matrix(0.866 0.5 -0.5 0.866 36.3628 240.913)" class="st3 st4">Dlk1</text>
+<text transform="matrix(0.866 0.5 -0.5 0.866 24.269 274.3561)" class="st3 st4">Adcyap1</text>
+<g>
+	<g>
+		<line class="st5" x1="215" y1="41.5" x2="215" y2="47.5"/>
+		<line class="st6" x1="215" y1="59.6" x2="215" y2="295.5"/>
+		<line class="st5" x1="215" y1="301.6" x2="215" y2="307.6"/>
+	</g>
+</g>
+<g>
+	<g>
+		<line class="st5" x1="296.5" y1="40.8" x2="296.5" y2="46.8"/>
+		<line class="st7" x1="296.5" y1="58.9" x2="296.5" y2="295.5"/>
+		<line class="st5" x1="296.5" y1="301.6" x2="296.5" y2="307.6"/>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 71.216 323.4043)" class="st3 st4">0</text>
+<text transform="matrix(1 0 0 1 391.6771 323.4044)" class="st3 st4">69</text>
+</svg>

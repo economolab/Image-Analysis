@@ -23,7 +23,7 @@ from ipywidgets import widgets, interactive, fixed, interact
 from matplotlib.widgets import Button
 import napari
 
-path = r'E:\\05-23_phox2b_retro_tracing\\image_processing\\slice_1\\individual genes\\'
+path = r'E:\\05-23_phox2b_retro_tracing\\image_processing\\slice_2\\individual genes\\'
 fname = 'GFP_r1.tif'
 
 image = skimage.io.imread(path+fname)
@@ -157,12 +157,12 @@ markers = skimage.segmentation.expand_labels(markers, distance=1)
 markers = skimage.measure.label(markers>0, connectivity=3)
 labels = skimage.segmentation.watershed(-distance, markers, mask=thresh_image)
 
-# test = napari.utils.colormaps.low_discrepancy_image(labels)
-# viewer = napari.view_image(image)
-# labels_layer = viewer.add_labels(markers, name='segmentation')
-# labels_layer = viewer.add_labels(labels, name='segmentation')
-# labels_layer = viewer.add_labels(mask, name='segmentation')
-# print(np.max(labels))
+test = napari.utils.colormaps.low_discrepancy_image(labels)
+viewer = napari.view_image(image)
+labels_layer = viewer.add_labels(markers, name='segmentation')
+labels_layer = viewer.add_labels(labels, name='segmentation')
+labels_layer = viewer.add_labels(mask, name='segmentation')
+print(np.max(labels))
 
 
 n_cells = np.max(labels)
@@ -204,10 +204,10 @@ df.to_csv('cell_centroids')
 
 # %%
 
-k = 54
+k = 120
 
 window1 = extract_plane_window(cell_centroids[k,:], Snap25_images[0], 100)
-window2 = extract_plane_window(cell_centroids[k,:], Snap25_images[1], 100)
+window2 = extract_plane_window(cell_centroids[k,:], Snap25_images[3], 100)
 
 fig, ax = plt.subplots(1,2)
 ax[0].imshow(window1)
